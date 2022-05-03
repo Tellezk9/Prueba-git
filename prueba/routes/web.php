@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,25 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
     return view('welcome');
 });
-Route::get('index', function () {
-    return view('index', ['numero' => '1']);
-})->name('index');
+
+Route::get('index', [PagesController::class,'index'])->name('index');
 // Route::get('fotos/{numero?}', function ($numero = 'sin numero') {
 //     return 'Esto es una fotografia: ' . $numero;
 // })->where('numero', '[0-9]+');
 
 
-Route::get('fotos', function () {
-    return view('fotos');
-})->name('fotos');
+Route::get('fotos', [PagesController::class,'fotos'])->name('fotos');
 
-Route::get('nosotros/{nombre?}', function ($nombre = null) {
-    $datos = ['kevin', 'alexander', 'tellez'];
-    // return view('nosotros', ['datos' => $datos]);
-
-    //compact sirve para mandar arrays asociativos
-    return view('nosotros', compact('datos', 'nombre'));
-})->name('nosotros');
+Route::get('nosotros/{nombre?}', [PagesController::class,'nosotros'])->name('nosotros');
