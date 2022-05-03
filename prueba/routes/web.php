@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('index', function () {
+    return view('index',['numero' => '1']);
+});
+Route::get('fotos/{numero?}', function ($numero = 'sin numero') {
+    return 'Esto es una fotografia: ' . $numero;
+})->where('numero', '[0-9]+');
