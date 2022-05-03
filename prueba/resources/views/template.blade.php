@@ -9,6 +9,11 @@
 </head>
 <body>
     <div class="container">
+        <div>
+            <a href="{{route('index')}}" class="btn btn-primary">index</a>
+            <a href="{{route('fotos')}}" class="btn btn-primary">fotos</a>
+            <a href="{{route('nosotros')}}" class="btn btn-primary">Nosotros</a>
+        </div>
         @yield('content')
     </div>
 </body>
