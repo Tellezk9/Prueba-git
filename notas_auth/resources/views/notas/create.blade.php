@@ -13,7 +13,7 @@
                         @if (session('mensaje'))
                             <div class="alert alert-success">{{ session('mensaje') }}</div>
                         @endif
-                        <form method="POST" action="/notas">
+                        <form method="POST" action="{{route('notas.add')}}">
                             @csrf
                             <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" />
                             <input type="text" name="descripcion" placeholder="Descripcion" class="form-control mb-2" />

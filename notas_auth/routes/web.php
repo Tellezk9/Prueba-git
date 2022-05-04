@@ -23,5 +23,8 @@ Auth::routes();
 
 Route::resource('notas', NotaController::class);
 
-Route::get('/crear', [NotaController::class, 'create'])->name('crear');
-Route::get('editar/{id}', [NotaController::class, 'edit'])->name('editar');
+Route::get('/crear', [NotaController::class, 'create'])->name('notas.crear');
+Route::post('/add', [NotaController::class, 'store'])->name('notas.add');
+Route::get('editar/{id}', [NotaController::class, 'edit'])->name('notas.editar');
+Route::put('actualizar/{id}',[NotaController::class, 'update'])->name('notas.actualizar');
+Route::get('borrar/{id}',[NotaController::class, 'destroy'])->name('notas.borrar');
