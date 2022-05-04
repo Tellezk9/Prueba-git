@@ -14,18 +14,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
+Route::get('/', function () {
     return view('welcome');
 });
+// Route::get('home', function(){
+//     return view('index');
+// })->name('home');
 
-Route::get('index', [PagesController::class,'index'])->name('index');
+Route::get('index', [PagesController::class, 'index'])->name('index');
 // Route::get('fotos/{numero?}', function ($numero = 'sin numero') {
 //     return 'Esto es una fotografia: ' . $numero;
 // })->where('numero', '[0-9]+');
 
 
-Route::get('fotos', [PagesController::class,'fotos'])->name('fotos');
-Route::get('tabla', [PagesController::class,'tabla'])->name('tabla');
-Route::get('tabla/{id}', [PagesController::class,'edit'])->name('notas.edit');
+Route::get('fotos', [PagesController::class, 'fotos'])->name('fotos');
 
-Route::get('nosotros/{nombre?}', [PagesController::class,'nosotros'])->name('nosotros');
+Route::get('nosotros/{nombre?}', [PagesController::class, 'nosotros'])->name('nosotros');
+
+//TABLA Y NOTAS
+Route::get('tabla', [PagesController::class, 'tabla'])->name('tabla');
+Route::get('editar/{id}', [PagesController::class, 'edit'])->name('notas.edit');
+Route::get('/registrar', [PagesController::class, 'add'])->name('notas.add');
+Route::post('/nueva', [PagesController::class, 'crear'])->name('notas.crear');
+Route::get('borrar/{id}', [PagesController::class, 'destroy'])->name('notas.delete');
+Route::put('actualizar/{id}', [PagesController::class, 'update'])->name('notas.actualizar');
