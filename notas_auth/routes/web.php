@@ -24,3 +24,4 @@ Auth::routes();
 Route::resource('notas', NotaController::class);
 
 Route::get('/crear', [NotaController::class, 'create'])->name('crear');
+Route::get('editar/{id}', [NotaController::class, 'edit'])->name('editar');

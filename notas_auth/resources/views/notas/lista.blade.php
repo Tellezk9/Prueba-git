@@ -11,7 +11,7 @@
                     </div>
 
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table text-center">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -26,7 +26,10 @@
                                         <th scope="row">{{ $item->id }}</th>
                                         <td>{{ $item->nombre }}</td>
                                         <td>{{ $item->descripcion }}</td>
-                                        <td>Acción</td>
+                                        <td>
+                                            <a href="{{route('editar', $item)}}" class="btn btn-success">Editar</a>
+                                            <a href="" class="btn btn-danger">Eliminar</a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -48,7 +48,13 @@ class NotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $nota = new Nota();
+        $nota->nombre = $request->nombre;
+        $nota->descripcion = $request->descripcion;
+        $nota->usuario = auth()->user()->email;
+        $nota->save();
+
+        return back()->with('mensaje','la nota ha sido registrada correctamente');
     }
 
     /**
@@ -59,7 +65,7 @@ class NotaController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -70,7 +76,7 @@ class NotaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('notas.edit');
     }
 
     /**
