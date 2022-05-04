@@ -25,5 +25,7 @@ Route::get('index', [PagesController::class,'index'])->name('index');
 
 
 Route::get('fotos', [PagesController::class,'fotos'])->name('fotos');
+Route::get('tabla', [PagesController::class,'tabla'])->name('tabla');
+Route::get('tabla/{id}', [PagesController::class,'edit'])->name('notas.edit');
 
 Route::get('nosotros/{nombre?}', [PagesController::class,'nosotros'])->name('nosotros');
