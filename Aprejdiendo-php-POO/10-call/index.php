@@ -11,8 +11,10 @@ class Persona{
         $this->ciudad = $ciudad;
     }
 
+
+    //Si se esta llamando una clase que no existe se llama este metodo automaticamente
     public function __call($name, $arguments){
-        return "No existe el metodo";
+        return "No existe el metodo / Funcion";
     }
 }
 
