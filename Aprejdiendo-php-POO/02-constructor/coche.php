@@ -2,6 +2,8 @@
 <?php
 // use Coche as GlobalCoche;
 
+use Coche as GlobalCoche;
+
 class Coche
 {
 
@@ -70,5 +72,20 @@ class Coche
     public function getModelo()
     {
         return $this->modelo;
+    }
+
+
+    public function mostrarInformacion(Coche $miObjeto){
+
+        if (is_object($miObjeto)) {
+        
+            $informacion = "<h1>Informaion del coche</h1>";
+            $informacion .= "Color: ".$miObjeto->color;
+            $informacion .= "<br>Modelo: ".$miObjeto->modelo;
+            $informacion .= "<br>Velocidad: ".$miObjeto->velocidad;
+        }else{
+            $informacion = "Tu dato es este: ".$miObjeto;
+        }
+    return $informacion;
     }
 } //fin de la clase
