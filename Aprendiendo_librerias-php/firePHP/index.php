@@ -18,3 +18,11 @@ echo "Hola mundo :D";
 
 $firephp->log('Mensaje enviado a consola');
 $firephp->log($frutas, 'Mensaje');
+
+$a;
+
+echo $a;
+
+$RESULTADO = 11 + 011 + 0x11;
+
+echo "$RESULTADO";
