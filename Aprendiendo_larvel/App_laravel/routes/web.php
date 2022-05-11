@@ -82,8 +82,16 @@ Route::get('/detalle', [PeliculaController::class, 'detalle'])->name('detalle');
 Route::get('/formulario', [PeliculaController::class, 'formulario'])->name('formulario');
 Route::post('/recibir', [PeliculaController::class, 'recibir'])->name('recibir');
 
+
+//Crud Fruteria
 Route::get('fruteria', [FrutaController::class, 'index'])->name('fruteria');
 Route::get('detalleFruta/{id}', [FrutaController::class, 'detalle'])->name('detalleFruta');
 Route::get('crearFruta', [FrutaController::class, 'create'])->name('crearFruta');
+Route::post('nueva', [FrutaController::class, 'store'])->name('nueva');
+Route::get('editarFruta/{id}', [FrutaController::class, 'edit'])->name('editarFruta');
+Route::put('update/{fruta}', [FrutaController::class, 'update'])->name('update');
+Route::get('delete/{fruta}', [FrutaController::class, 'destroy'])->name('eliminarFruta');
+
+
 
 Route::resource('usuario', UsuarioController::class);

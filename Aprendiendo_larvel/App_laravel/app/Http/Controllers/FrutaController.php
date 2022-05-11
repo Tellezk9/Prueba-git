@@ -15,7 +15,7 @@ class FrutaController extends Controller
      */
     public function index()
     {
-        $frutas = Fruta::all();
+        $frutas = DB::table("frutas")->paginate(5);
         return view('fruteria.index', compact('frutas'));
     }
 
@@ -26,7 +26,7 @@ class FrutaController extends Controller
      */
     public function create()
     {
-        return view('fruta.acciones.crear');
+        return view('fruteria.acciones.crear');
     }
 
     /**
@@ -37,7 +37,12 @@ class FrutaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $frutaNueva = new Fruta();
+        $frutaNueva->nombre = $request->nombre;
+        $frutaNueva->descripcion = $request->descripcion;
+        $frutaNueva->precio = $request->precio;
+        $frutaNueva->save();
+        return back()->with('mensaje', 'La fruta ha sido registrada Correctamente');
     }
 
     /**
@@ -57,9 +62,11 @@ class FrutaController extends Controller
      * @param  \App\Models\Fruta  $fruta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Fruta $fruta)
+    public function edit($fruta)
     {
-        //
+        $buscar = DB::table('frutas')->where('id','=', $fruta)->first();
+        // return $buscar;
+        return view('fruteria.acciones.editar', compact('buscar'));
     }
 
     /**
@@ -69,9 +76,15 @@ class FrutaController extends Controller
      * @param  \App\Models\Fruta  $fruta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fruta $fruta)
+    public function update(Request $request, $fruta)
     {
-        //
+        $editar = Fruta::findOrFail($fruta);
+        $editar->nombre = $request->nombre;
+        $editar->descripcion = $request->descripcion;
+        $editar->precio = $request->precio;
+        $editar->save();
+        return back()->with('mensaje', 'La fruta ha sido Actualizado Correctamente');
+
     }
 
     /**
@@ -80,9 +93,11 @@ class FrutaController extends Controller
      * @param  \App\Models\Fruta  $fruta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Fruta $fruta)
+    public function destroy($fruta)
     {
-        //
+        $borrar = Fruta::findOrFail($fruta);
+        $borrar->delete();
+        return back()->with('mensaje', 'La fruta ha sido Borrada Satisfactoriamente');
     }
 
     public function detalle($id)
