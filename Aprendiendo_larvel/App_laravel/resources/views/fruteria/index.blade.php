@@ -5,7 +5,7 @@
         <a href="{{ route('crearFruta') }}" class="btn btn-primary">+</a>
     </h1>
 
-    <table class="table table-bordered text-center">
+    <table class="table table-bordered text-center table-striped table-hover">
         <thead>
             <tr>
                 <th>Id</th>

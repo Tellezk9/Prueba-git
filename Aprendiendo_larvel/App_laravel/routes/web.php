@@ -94,4 +94,5 @@ Route::get('delete/{fruta}', [FrutaController::class, 'destroy'])->name('elimina
 
 
 
+
 Route::resource('usuario', UsuarioController::class);

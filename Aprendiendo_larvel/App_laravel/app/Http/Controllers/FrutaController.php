@@ -15,7 +15,7 @@ class FrutaController extends Controller
      */
     public function index()
     {
-        $frutas = DB::table("frutas")->paginate(5);
+        $frutas = DB::table("frutas")->paginate(10);
         return view('fruteria.index', compact('frutas'));
     }
 
