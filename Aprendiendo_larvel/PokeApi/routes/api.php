@@ -17,4 +17,4 @@ use Illuminate\Support\Facades\Http;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-$response = Http::acceptJson()->get('https://pokeapi.co/api/v2/pokemon/pikachu');
+// $response = Http::acceptJson()->get('https://pokeapi.co/api/v2/pokemon/pikachu');
