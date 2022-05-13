@@ -55,10 +55,12 @@
                         </a>
                         </p>
                         <div class="collapse" id="movimientos">
-                            <div class="card card-body">
-                                @foreach ($datas->moves as $item)
-                                    {{ $item->move->name }}<br>
-                                @endforeach
+                            <div class="card card-body" data-spy="scroll" data-target=".navbar" data-offset="50">
+                                <ul>
+                                    @foreach ($datas->moves as $item)
+                                        <li>{{ $item->move->name }}</li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
                         </p>
@@ -88,6 +90,6 @@
         </div>
     </div>
 
-    <a href="{{route('buscador')}}" class="btn btn-danger">Regresar</a>
+    <a href="{{ route('buscador') }}" class="btn btn-danger">Regresar</a>
     {{-- @endforeach --}}
 @endsection
