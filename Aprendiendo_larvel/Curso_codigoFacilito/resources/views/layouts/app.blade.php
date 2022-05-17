@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Crud con rutas</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -78,6 +78,9 @@
         <main class="py-4">
             @yield('content')
         </main>
+        @if (session('mensaje'))
+            <div class="container"><h3>{{session('mensaje')}}</h3></div>
+        @endif
     </div>
 </body>
 </html>
